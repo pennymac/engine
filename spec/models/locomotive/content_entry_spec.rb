@@ -175,7 +175,7 @@ describe Locomotive::ContentEntry do
       @content_type.order_by = '_position'
       @content_type.save
 
-      %w(first second third).each_with_index do |item, index|
+      %w(first second third fourth fifth).each_with_index do |item, index|
         content = build_content_entry(title: item.to_s, _position: index, visible: true)
         content.save!
         instance_variable_set "@#{item}", content
@@ -197,7 +197,7 @@ describe Locomotive::ContentEntry do
     end
 
     it 'should return nil when fetching next item on last in list' do
-      @third.next.should == nil
+      @fifth.next.should == nil
     end
   end
 
